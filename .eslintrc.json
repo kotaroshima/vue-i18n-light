@@ -1,0 +1,32 @@
+{
+  "parserOptions": {
+    "sourceType": "module"
+  },
+  "extends": [
+    "eslint:recommended",
+    "google"
+  ],
+  "rules": {
+    "no-console": ["warn", { "allow": ["warn", "error"] }],
+    "no-unused-vars": ["error", { "args": "none" }],
+    "newline-per-chained-call": ["warn", { "ignoreChainWithDepth": 3 }],
+    "import/no-extraneous-dependencies": ["off"],
+    "require-jsdoc": ["off"],
+    "indent": ["warn", 2, {"SwitchCase": 1}],
+    "semi": ["warn"],
+    "quotes": ["warn"],
+    "spaced-comment": ["warn"],
+    "array-bracket-spacing": ["warn"],
+    "object-curly-spacing": ["warn", "always"],
+    "space-before-blocks": ["warn"],
+    "comma-dangle": ["warn"],
+    "block-spacing": ["warn", "always"],
+    "max-len": ["warn"],
+    "brace-style": ["warn", "1tbs", { "allowSingleLine": true }],
+    "no-multi-spaces": ["warn"],
+    "camelcase": ["warn"]
+  },
+  "env": {
+    "es6": true
+  }
+}

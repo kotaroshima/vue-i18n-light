@@ -1,0 +1,33 @@
+{
+  "name": "vue-i18n-light",
+  "version": "0.1.0",
+  "description": "Super-light i18n plugin for Vue.js",
+  "main": "src/index.js",
+  "module": "src/index.js",
+  "scripts": {
+    "lint": "eslint -c .eslintrc.json src",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kotaroshima/vue-i18n-light.git"
+  },
+  "keywords": [
+    "JavaScript",
+    "vue",
+    "vue.js",
+    "plugin",
+    "i18n",
+    "internationalization"
+  ],
+  "author": "Kotaro Shima",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kotaroshima/vue-i18n-light/issues"
+  },
+  "homepage": "https://github.com/kotaroshima/vue-i18n-light#readme",
+  "devDependencies": {
+    "eslint": "^4.19.1",
+    "eslint-config-google": "^0.9.1"
+  }
+}
