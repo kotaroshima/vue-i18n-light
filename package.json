@@ -1,6 +1,6 @@
 {
   "name": "vue-i18n-light",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Super-light i18n plugin for Vue.js",
   "main": "src/index.js",
   "module": "src/index.js",
