@@ -1,4 +1,3 @@
-// TODO : investigate if we can do one-time binding
 const KEY_DELIMITER = '.';
 
 export default {

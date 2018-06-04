@@ -2,10 +2,11 @@
   "name": "vue-i18n-light",
   "version": "0.2.0",
   "description": "Super-light i18n plugin for Vue.js",
-  "main": "src/index.js",
-  "module": "src/index.js",
+  "main": "dist/vue-i18n-light.common.js",
+  "module": "dist/vue-i18n-light.esm.js",
   "scripts": {
     "lint": "eslint -c .eslintrc.json src",
+    "build": "node tools/build.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -27,7 +28,13 @@
   },
   "homepage": "https://github.com/kotaroshima/vue-i18n-light#readme",
   "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-plugin-external-helpers": "^6.22.0",
+    "babel-preset-env": "^1.7.0",
     "eslint": "^4.19.1",
-    "eslint-config-google": "^0.9.1"
+    "eslint-config-google": "^0.9.1",
+    "rollup": "^0.59.4",
+    "rollup-plugin-babel": "^3.0.4",
+    "uglify-js": "^3.4.0"
   }
 }

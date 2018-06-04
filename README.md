@@ -105,7 +105,7 @@ This plugin supports the following options.
 * **Type** : `string`
 * **Default** : `$t`
 * **Details** : Name of the template interpolating function which can be called within templates
-* **Example** : See previous "Usage" section
+* **Example** : See previous "[Usage](https://github.com/kotaroshima/vue-i18n-light#usage)" section
 
   Main JavaScript:
   ```javascript
