@@ -83,10 +83,12 @@ Vue.component('component1', {
 ```
 Component Template HTML (`component1.html`):
 ```html
+<!-- {% raw %} -->
 <div>
   <div>{{ i18n.headings.title }}</div>
   <div>{{ $t('greeings', { name: name }) }}</div>
 </div>
+<!-- {% endraw %}) -->
 ```
 
 ## Customization
@@ -129,7 +131,9 @@ This plugin supports the following options.
   ```
   Component Template HTML:
   ```html
+  <!-- {% raw %} -->
   <div>{{ interpolate('label1', { name: name} }}</div>
+  <!-- {% endraw %}) -->
   ```
 
 ### optionName
