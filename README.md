@@ -2,19 +2,19 @@
 
 Super-light i18n plugin for Vue.js
 
-- Light bootstrap code. Main objective of this plugin was to bundle only required i18n resources to each components rather than loading all i18n resources at once. So it allows to build light bootstrap and lazy load components with required i18n resources bundled together.
-- Small footprint. This plugin itself doesn't do much, and it delegates templating to external libraries (such as 'ejs', 'lodash', 'underscore', etc). It only provides utility functions including a "glue" with a templating function, so the file size is extremely small.
+- _**Light bootstrap code**_ : The main objective of this plugin was to make bootstrap code as small as possible in terms of i18n. Instead of loading all i18n resources together at once, have each component load required i18n resources so that they can be lazy loaded.
+- _**Small footprint**_ : This plugin delegates templating to external libraries (such as [ejs](http://ejs.co/), [lodash.template](https://www.npmjs.com/package/lodash.template), [underscore.template](https://www.npmjs.com/package/underscore.template), etc). So this plugin itself doesn't do much, and simply provides utility functions including a "glue" with templating function. As a result, the file size is extremely small, which is less than 1KB minified.
 
 
 ## Pre-requisite
 
-It requires external templating libraries such as 'ejs', 'lodash', 'underscore', etc. Because of this, this plugin is not aware of what characters to use as placeholder. That is totally up to whatever templating libraries you use.
+It requires external templating libraries such as [ejs](http://ejs.co/), [lodash.template](https://www.npmjs.com/package/lodash.template), [underscore.template](https://www.npmjs.com/package/underscore.template), etc. Because of this, this plugin does not restrict what characters to use as a placeholder. That is totally up to whatever templating libraries you use.
 
 ## Usage
 
 ### Main JavaScript
 
-Using 'ejs':
+Using [ejs](http://ejs.co/) :
 ```javascript
 const import i18nPlugin from 'vue-i18n-light';
 const import ejs from 'ejs';
@@ -25,7 +25,7 @@ Vue.use(i18nPlugin({
   },
 }));
 ```
-Using 'lodash.template':
+Using [lodash.template](https://www.npmjs.com/package/lodash.template) :
 ```javascript
 const import i18nPlugin from 'vue-i18n-light';
 const import template from 'lodash.template';
@@ -39,7 +39,7 @@ Vue.use(i18nPlugin({
 
 ### i18n Resources
 
-path/to/locales/en/component1.json
+'en' resource (path/to/locales/en/component1.json) :
 ```json
 {
   "headings": {
@@ -49,7 +49,7 @@ path/to/locales/en/component1.json
 }
 ```
 
-path/to/locales/ja/component1.json
+'ja' resource (path/to/locales/ja/component1.json) :
 ```json
 {
   "headings": {
@@ -64,11 +64,10 @@ path/to/locales/ja/component1.json
 Component JavaScript:
 ```javascript
 // For loading of i18n resources, you can do whatever you want
-// One way is to use 'webpack.NormalModuleReplacementPlugin'
-// example can be found here:
+// If using webpack, one way is to use 'webpack.NormalModuleReplacementPlugin'
+// An example can be found here:
 // https://github.com/kotaroshima/vue-i18n-light-sample
 import messages from 'my/i18n/component1.json';
-
 import templateHtml from './component1.html';
 
 Vue.component('component1', {
@@ -96,16 +95,18 @@ Component Template HTML (`component1.html`):
 This plugin supports the following options.
 
 ### templating.engine
+
 * **Type** : `Function`
 * **Required** : true
 * **Details** : Pass compile function of whatever template engine of your choice
-* **Example** : See previous "Usage" section
+* **Example** : See previous [Usage](#usage) section
 
 ### templating.funcName
+
 * **Type** : `string`
-* **Default** : `$t`
-* **Details** : Name of the template interpolating function which can be called within templates
-* **Example** : See previous "[Usage](https://github.com/kotaroshima/vue-i18n-light#usage)" section
+* **Default** : `'$t'`
+* **Details** : Name of the template interpolating function which can be called from templates
+* **Example** :
 
   Main JavaScript:
   ```javascript
@@ -116,7 +117,7 @@ This plugin supports the following options.
     },
   });
   ```
-  Component JavaScript:
+  Component JavaScript :
   ```javascript
   Vue.component('my-component', {
     i18n: {
@@ -127,36 +128,37 @@ This plugin supports the following options.
         name: 'Luke Skywalker',
       };
     },
+    template: templateHtml
   });
   ```
-  Component Template HTML:
+  Component HTML :
   ```html
   <!-- {% raw %} -->
-  <div>{{ interpolate('label1', { name: name} }}</div>
+  <div>{{ interpolate('label1', { name: name }) }}</div>
   <!-- {% endraw %}) -->
   ```
 
 ### optionName
 * **Type** : `string`
-* **Default** : `i18n`
+* **Default** : `'i18n'`
 * **Details** : Name of the i18n resource object that can be accessed within templates
 * **Example** :
 
-  Main JavaScript:
+  Main JavaScript :
   ```javascript
   i18nPlugin({
     optionName: 'messages',
+    templating {
+      engine: ejs.compile,
+    },
   });
   ```
-  Component JavaScript:
+  Component JavaScript :
   ```javascript
   Vue.component('my-component', {
     messages: {
       label1: "Hoge",
     },
+    template: "<div>{{ messages.label1 }}</div>",
   });
-  ```
-  Component Template HTML:
-  ```html
-  <div>{{ messages.label1 }}</div>
   ```
